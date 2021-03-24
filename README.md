@@ -1,8 +1,8 @@
-# Innowise Lab Internship: Level 1: Clever to-do list
+# Innowise Lab Internship: Level 2: Mini Paint
 
 This project was created with React and Firebase.
 
-[Demo](https://aliaksandrkasyanau.github.io/Innowise-Lab-Internship-Level-1-Clever-to-do-list/)
+[Demo](https://aliaksandrkasyanau.github.io/Innowise-Lab-Internship-Level-2-Mini-paint/)
 
 ## Available Scripts
 
