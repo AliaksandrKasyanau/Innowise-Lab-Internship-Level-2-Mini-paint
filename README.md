@@ -1,12 +1,32 @@
-# Getting Started with Create React App
+# Innowise Lab Internship: Level 1: Clever to-do list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with React and Firebase.
+
+[Demo](https://aliaksandrkasyanau.github.io/Innowise-Lab-Internship-Level-1-Clever-to-do-list/)
 
 ## Available Scripts
 
+1. Clone the develop branch.
+
+`$ git clone https://github.com/AliaksandrKasyanau/Innowise-Lab-Internship-Level-1-Clever-to-do-list -b develop`
+
+2. Go to the directory
+
+`$ cd Innowise-Lab-Internship-Level-1-Clever-to-do-list`
+
+3. Install the npm modules
+
+`$ npm install`
+
+4. **For working locally add .env file with firebase API keys.**
+
+Create .env file by type
+
+`REACT_APP_API_KEY=your API key`
+
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,57 +34,94 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+App is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Architecture solution
 
-### `npm run eject`
+### Component folder
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Component folder usually contains 1 files: .jsx/.tsx; there files and the folder are named with component name (f.e.
+PageContent /
+PageContent.jsx
+)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Database snapshot
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    └──users
+        └──userId
+    	    ├──displayName
+    	    └──email
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Storage snapshot
 
-## Learn More
+    └──images
+        └──userId
+    	    ├──picId
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Application stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+List of packages I used for this app
 
-### Code Splitting
+## React-app-rewired and React-app-rewire-alias
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Used to config alias
 
-### Analyzing the Bundle Size
+### React-router-dom
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Used to add routings
 
-### Making a Progressive Web App
+### React-bootstrap
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Used for edit layout grid
 
-### Advanced Configuration
+### React-toastify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Used to add Toasts
 
-### Deployment
+### Redux & React-Redux
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Used to provide the data
 
-### `npm run build` fails to minify
+### Redux Thunk
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Allows to write action creators that return a function instead of an action
+
+## Folders structure
+
+    └──src                            #Main folder for source code
+        ├──assets                     #Contains Icons
+        ├──configs                    #Contains Toast config
+        ├──firebase                   #Contains firebase init script
+        ├──modules                    #Contains the main components of the application
+            ├──Auth                       #Contains the Authorization module
+                ├──PasswordReset              #Password reset component
+                ├──SignIn                     #Sign In component
+                ├──SignUp                     #Sign Up component
+            ├──Paint                      #Contains the Paint module
+                └──Canvas                     #Contains the Canvas component
+                ├──Toolbar                    #Contains the Toolbar component
+                    ├──Tools                      #Contains Tools
+                    ├──Toolbar.tsx                #Toolbar Component
+                ├──Gallery                    #Contains the Gallery component
+        ├──store                      #Redux
+            ├──actions                    #Contains all actions
+            ├──reducers                   #Contains all reducers
+            ├──index.ts                   #Contains the store
+        ├──routes                     #Routing
+        ├──styles                     #Style variables
+        ├──types                      #Types
+        └──index.js
+
+## Styling
+
+We use react-bootstrap and material design to work with styles and icons in our project;
+
+## Code formatting
+
+This project contains .prettierrc file and .eslintrc.js file; it describes rules for Prettier code formatter and ESlint; according to these rules we are able to keep Code formatting the same for every project developer; Also we created the pre-hook rules.
