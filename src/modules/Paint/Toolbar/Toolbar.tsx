@@ -1,5 +1,5 @@
 /* eslint-disable no-self-assign */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import Brush from './Tools/Brush';
 import Rectangle from './Tools/Rectangle';
@@ -88,7 +88,9 @@ const Toolbar = () => {
     const { uid } = user.user;
     saveImage(canvasRef.current, uid);
   };
-
+  useEffect(() => {
+    setBrush();
+  }, []);
   return (
     <div className="toolbar-container">
       <label>Fill Color</label>
